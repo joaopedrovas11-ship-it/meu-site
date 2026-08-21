@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="JP Webs - Criação de sites profissionais e modernos."
+    >
+
+    <title>JP Webs | Sites Profissionais</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container nav-content">
+
+            <a href="/" class="logo">
+                JP<span>Webs</span>
+            </a>
+
+            <nav>
+                <a href="#inicio">Início</a>
+                <a href="#produtos">Produtos</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#contato">Contato</a>
+            </nav>
+
+            <a
+                href="#produtos"
+                class="nav-button"
+            >
+                Ver produtos
+            </a>
+
+        </div>
+    </header>
+
+
+    <!-- HERO -->
+    <main>
+
+        <section id="inicio" class="hero">
+
+            <div class="container hero-content">
+
+                <div class="hero-text">
+
+                    <div class="badge">
+                        🚀 Sites profissionais
+                    </div>
+
+                    <h1>
+                        Seu negócio merece
+                        <span>um site incrível.</span>
+                    </h1>
+
+                    <p>
+                        Criamos sites modernos, rápidos e responsivos
+                        para empresas, profissionais e criadores.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a
+                            href="#produtos"
+                            class="button primary"
+                        >
+                            Ver produtos
+                        </a>
+
+                        <a
+                            href="#contato"
+                            class="button secondary"
+                        >
+                            Falar comigo
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="hero-card">
+
+                    <div class="browser">
+
+                        <div class="browser-top">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <div class="browser-content">
+
+                            <div class="mock-logo">
+                                JP<span>Webs</span>
+                            </div>
+
+                            <div class="mock-title">
+                                Seu próximo site
+                                começa aqui.
+                            </div>
+
+                            <div class="mock-line"></div>
+                            <div class="mock-line small"></div>
+
+                            <div class="mock-button">
+                                Começar agora
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- BENEFÍCIOS -->
+        <section class="benefits">
+
+            <div class="container benefits-grid">
+
+                <div class="benefit">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Rápido</h3>
+                    <p>Sites rápidos e otimizados.</p>
+                </div>
+
+                <div class="benefit">
+                    <div class="benefit-icon">📱</div>
+                    <h3>Responsivo</h3>
+                    <p>Funciona no celular, tablet e PC.</p>
+                </div>
+
+                <div class="benefit">
+                    <div class="benefit-icon">🎨</div>
+                    <h3>Moderno</h3>
+                    <p>Design profissional e personalizado.</p>
+                </div>
+
+                <div class="benefit">
+                    <div class="benefit-icon">🔒</div>
+                    <h3>Confiável</h3>
+                    <p>Estrutura preparada para produção.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PRODUTOS -->
+        <section id="produtos" class="products-section">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <div class="badge">
+                        💻 Nossos serviços
+                    </div>
+
+                    <h2>
+                        Escolha o site ideal
+                    </h2>
+
+                    <p>
+                        Soluções para diferentes tipos de projetos.
+                    </p>
+
+                </div>
+
+
+                <div class="products-grid">
+
+                    {% for produto in produtos %}
+
+                    <article
+                        class="product-card {% if produto.destaque %}featured{% endif %}"
+                    >
+
+                        {% if produto.destaque %}
+                        <div class="popular">
+                            MAIS POPULAR
+                        </div>
+                        {% endif %}
+
+                        <div class="product-icon">
+                            {% if produto.id == 1 %}
+                                🌐
+                            {% elif produto.id == 2 %}
+                                💻
+                            {% else %}
+                                🚀
+                            {% endif %}
+                        </div>
+
+                        <h3>
+                            {{ produto.nome }}
+                        </h3>
+
+                        <p>
+                            {{ produto.descricao }}
+                        </p>
+
+                        <div class="price">
+                            {{ produto.preco }}
+                        </div>
+
+                        <ul class="features">
+
+                            <li>✓ Design responsivo</li>
+                            <li>✓ Visual profissional</li>
+                            <li>✓ Otimizado para celular</li>
+                            <li>✓ Suporte inicial</li>
+
+                        </ul>
+
+                        <a
+                            href="/produto/{{ produto.id }}"
+                            class="buy-button"
+                        >
+                            Quero este site →
+                        </a>
+
+                    </article>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SOBRE -->
+        <section id="sobre" class="about">
+
+            <div class="container about-content">
+
+                <div>
+                    <div class="badge">
+                        ✨ Sobre a JP Webs
+                    </div>
+
+                    <h2>
+                        Transformando ideias em sites.
+                    </h2>
+                </div>
+
+                <div>
+                    <p>
+                        A JP Webs cria sites modernos para ajudar
+                        negócios e profissionais a terem uma presença
+                        profissional na internet.
+                    </p>
+
+                    <p>
+                        Cada projeto pode ser personalizado de acordo
+                        com a necessidade do cliente.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTATO -->
+        <section id="contato" class="contact">
+
+            <div class="container contact-box">
+
+                <div>
+                    <div class="badge">
+                        📲 Vamos conversar
+                    </div>
+
+                    <h2>
+                        Quer criar seu site?
+                    </h2>
+
+                    <p>
+                        Entre em contato e explique o que você precisa.
+                    </p>
+                </div>
+
+                <a
+                    href="https://wa.me/5579999999999"
+                    target="_blank"
+                    class="button primary"
+                >
+                    Falar pelo WhatsApp
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="container footer-content">
+
+            <div class="logo">
+                JP<span>Webs</span>
+            </div>
+
+            <p>
+                © 2026 JP Webs. Todos os direitos reservados.
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
