@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido Confirmado! | JpPlayzTv Webs</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body class="success-page-bg">
+
+    <div class="success-container">
+        
+        <div class="success-card">
+            <div class="success-icon">🎉</div>
+            
+            <h1>Pedido Recebido!</h1>
+            <p class="greeting">Olá, <strong>{{ cliente }}</strong>! Seu pedido de simulação foi gerado.</p>
+            
+            <div class="order-summary-box">
+                <p>Serviço Pré-Selecionado:</p>
+                <h3>{{ produto.nome }}</h3>
+                <span class="price-tag-success">Apenas {{ produto.preco }}</span>
+            </div>
+
+            <p class="next-step-info">
+                🚀 <strong>Próximo passo:</strong> Clique no botão abaixo para nos enviar os detalhes no WhatsApp e darmos início ao planejamento do layout do seu site!
+            </p>
+
+            <div class="success-buttons">
+                <a 
+                    href="https://wa.me/5579999999999?text=Olá,%20meu%20nome%20é%20{{ cliente }}!%20Acabei%20de%20fazer%20a%20simulação%20do%20plano%20*{{ produto.nome }}*%20no%20seu%20site%20e%20quero%20iniciar%20o%20projeto." 
+                    target="_blank" 
+                    class="button primary success-wa-btn"
+                >
+                    Falar pelo WhatsApp Agora
+                </a>
+                <a href="/" class="back-home-link">Voltar para a Página Inicial</a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

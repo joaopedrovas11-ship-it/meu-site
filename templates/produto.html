@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ produto.nome }} | JP Webs</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+
+    <!-- NAVBAR (Compatível com a sua existente) -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="/" class="logo">
+                JP<span>Webs</span>
+            </a>
+            <nav>
+                <a href="/#produtos">← Voltar para Serviços</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container py-content">
+        <div class="product-detail-grid">
+            
+            <!-- Coluna da Esquerda: Detalhes do Serviço -->
+            <div class="product-info-box">
+                <div class="badge">💻 Serviço Selecionado</div>
+                <h1>{{ produto.nome }}</h1>
+                <p class="large-desc">{{ produto.descricao }}</p>
+                
+                <div class="product-price">{{ produto.preco }}</div>
+
+                <div class="custom-divider"></div>
+
+                <h3>O que está incluso neste projeto?</h3>
+                <ul class="detail-features-list">
+                    {% for detalhe in produto.detalhes %}
+                        <li>
+                            <span class="checkmark">✓</span> {{ detalhe }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Coluna da Direita: Formulário de Contratação -->
+            <div class="checkout-card">
+                <h3>Iniciar meu Projeto 🚀</h3>
+                <p>Preencha os dados abaixo para simularmos seu pedido e entrarmos em contato.</p>
+                
+                <form action="/checkout/{{ produto.id }}" method="POST">
+                    <div class="form-group">
+                        <label for="nome">Seu Nome completo</label>
+                        <input type="text" id="nome" name="nome" placeholder="Ex: João Silva" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="whatsapp">WhatsApp para contato</label>
+                        <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ex: (79) 7996457258" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="obs">Fale brevemente sobre o seu negócio (Opcional)</label>
+                        <textarea id="obs" name="obs" rows="3" placeholder="Do que se trata o seu site?"></textarea>
+                    </div>
+
+                    <button type="submit" class="button primary submit-checkout-btn">
+                        Simular Contratação →
+                    </button>
+                </form>
+                
+                <p class="secure-note">🔒 Seus dados de contato estão seguros.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-content">
+            <div class="logo">
+                JpPlayzTv<span>Webs</span>
+            </div>
+            <p>© 2026 JpPlayzTv Webs. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,54 +1,80 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for, request
 
 app = Flask(__name__)
 
-
+# Banco de dados atualizado com novos preços, promoções e Bot de Discord
 PRODUTOS = [
     {
         "id": 1,
         "nome": "Landing Page",
-        "descricao": "Página moderna e responsiva para divulgar seu negócio.",
-        "preco": "R$ 149,90",
-        "destaque": False
+        "descricao": "Uma página de conversão ultra-rápida de alta performance. Perfeita para vender produtos físicos, infoprodutos ou serviços digitais.",
+        "preco_original": "R$ 499,00",
+        "preco": "R$ 150,00",
+        "porcentagem": "70% OFF",
+        "destaque": False,
+        "detalhes": [
+            "Focada 100% em conversão e vendas",
+            "Integração rápida com seu WhatsApp/Discord",
+            "Configuração de Pixels (Meta/Google)",
+            "Design moderno e otimizado para celulares",
+            "Entrega rápida e suporte grátis"
+        ]
     },
     {
         "id": 2,
-        "nome": "Site Profissional",
-        "descricao": "Site completo para empresas, profissionais e pequenos negócios.",
-        "preco": "R$ 299,90",
-        "destaque": True
+        "nome": "Site Institucional",
+        "descricao": "A estrutura de autoridade definitiva para sua empresa ou portfólio. Até 5 páginas interativas para mostrar autoridade no mercado.",
+        "preco_original": "R$ 997,00",
+        "preco": "R$ 450,00",
+        "porcentagem": "55% OFF",
+        "destaque": True,
+        "detalhes": [
+            "Até 5 páginas premium personalizadas",
+            "Painel administrativo simples",
+            "SEO otimizado para o Google",
+            "Formulários de contato dinâmicos",
+            "Suporte exclusivo por 30 dias"
+        ]
     },
     {
         "id": 3,
-        "nome": "Site Premium",
-        "descricao": "Site completo com design personalizado e recursos avançados.",
-        "preco": "R$ 499,90",
-        "destaque": False
+        "nome": "Bot de Discord Personalizado",
+        "descricao": "Sistemas completos de moderação automatizada, economia, registros, minigames e comandos exclusivos sob medida para sua comunidade.",
+        "preco_original": "R$ 120,00",
+        "preco": "R$ 72,00",
+        "porcentagem": "40% OFF",
+        "destaque": False,
+        "detalhes": [
+            "Comandos de barra inovadores (/)",
+            "Moderação automática inteligente",
+            "Integração de Banco de Dados",
+            "Sistemas de cargos automáticos e VIPs",
+            "Hospedagem 24/7 de alta estabilidade"
+        ]
     }
 ]
 
-
-@app.route("/")
+@app.route('/')
 def index():
-    return render_template("index.html", produtos=PRODUTOS)
+    return render_template('index.html', produtos=PRODUTOS)
 
-
-@app.route("/produto/<int:produto_id>")
+@app.route('/produto/<int:produto_id>')
 def produto(produto_id):
-    produto_encontrado = next(
-        (produto for produto in PRODUTOS if produto["id"] == produto_id),
-        None
-    )
+    produto = next((p for p in PRODUTOS if p['id'] == produto_id), None)
+    if not produto:
+        return "Serviço não encontrado", 404
+    return render_template('produto.html', produto=produto)
 
-    if produto_encontrado is None:
-        return "Produto não encontrado", 404
+@app.route('/checkout/<int:produto_id>', methods=['POST'])
+def checkout(produto_id):
+    nome_cliente = request.form.get('nome')
+    whatsapp = request.form.get('whatsapp')
+    
+    produto = next((p for p in PRODUTOS if p['id'] == produto_id), None)
+    if not produto:
+        return "Serviço não encontrado", 404
+        
+    return render_template('sucesso.html', cliente=nome_cliente, produto=produto, whatsapp=whatsapp)
 
-    return render_template(
-        "index.html",
-        produtos=PRODUTOS,
-        produto_selecionado=produto_encontrado
-    )
-
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)

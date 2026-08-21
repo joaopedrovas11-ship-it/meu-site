@@ -25,6 +25,22 @@ a {
     margin: auto;
 }
 
+/* =========================
+   SCROLLBAR PREMIUM
+========================= */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #080b12;
+}
+::-webkit-scrollbar-thumb {
+    background: #1c2330;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #6c63ff;
+}
 
 /* =========================
    NAVBAR
@@ -79,8 +95,15 @@ nav a:hover {
     border-radius: 8px;
     font-size: 14px;
     font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
 }
 
+.nav-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(108, 99, 255, 0.5);
+    background: #7a72ff;
+}
 
 /* =========================
    HERO
@@ -143,23 +166,37 @@ nav a:hover {
     padding: 14px 22px;
     border-radius: 9px;
     font-weight: bold;
-    transition: 0.2s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border: none;
+    text-align: center;
 }
 
 .button:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 }
 
 .primary {
     background: #6c63ff;
     color: white;
+    box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+}
+
+.primary:hover {
+    box-shadow: 0 8px 25px rgba(108, 99, 255, 0.5);
+    background: #7a72ff;
 }
 
 .secondary {
     border: 1px solid #30384a;
     color: white;
+    background: transparent;
 }
 
+.secondary:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #6c63ff;
+}
 
 /* =========================
    MOCKUP
@@ -179,6 +216,12 @@ nav a:hover {
     overflow: hidden;
     box-shadow: 0 25px 80px rgba(0, 0, 0, 0.45);
     transform: rotate(1deg);
+    transition: all 0.5s ease;
+}
+
+.browser:hover {
+    transform: rotate(0deg) scale(1.02);
+    border-color: #6c63ff;
 }
 
 .browser-top {
@@ -245,8 +288,8 @@ nav a:hover {
     border-radius: 7px;
     margin-top: 30px;
     font-size: 13px;
+    font-weight: bold;
 }
-
 
 /* =========================
    BENEFITS
@@ -288,7 +331,6 @@ nav a:hover {
     font-size: 13px;
 }
 
-
 /* =========================
    PRODUCTS
 ========================= */
@@ -324,12 +366,13 @@ nav a:hover {
     border: 1px solid #252d3a;
     border-radius: 15px;
     padding: 32px;
-    transition: 0.25s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .product-card:hover {
-    transform: translateY(-7px);
-    border-color: #464dff;
+    transform: translateY(-8px);
+    border-color: #6c63ff;
+    box-shadow: 0 15px 40px rgba(108, 99, 255, 0.15);
 }
 
 .product-card.featured {
@@ -344,9 +387,10 @@ nav a:hover {
     transform: translateY(-50%);
     background: #6c63ff;
     padding: 5px 10px;
-    border-radius: 5px;
+    border-radius: 50px;
     font-size: 10px;
     font-weight: bold;
+    box-shadow: 0 4px 10px rgba(108, 99, 255, 0.4);
 }
 
 .product-icon {
@@ -369,6 +413,7 @@ nav a:hover {
     font-size: 32px;
     font-weight: 800;
     margin: 25px 0;
+    color: #6c63ff;
 }
 
 .features {
@@ -388,16 +433,20 @@ nav a:hover {
     margin-top: 25px;
     padding: 13px;
     text-align: center;
-    background: #6c63ff;
+    background: #1c2330;
+    border: 1px solid #252d3a;
     border-radius: 8px;
     font-weight: bold;
-    transition: 0.2s;
+    transition: all 0.3s ease;
 }
 
+.product-card.featured .buy-button,
 .buy-button:hover {
-    background: #7a72ff;
+    background: #6c63ff;
+    border-color: #6c63ff;
+    color: white;
+    box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
 }
-
 
 /* =========================
    ABOUT
@@ -426,7 +475,6 @@ nav a:hover {
     color: #a0a8b7;
     margin-bottom: 18px;
 }
-
 
 /* =========================
    CONTACT
@@ -461,7 +509,6 @@ nav a:hover {
     color: #969ead;
 }
 
-
 /* =========================
    FOOTER
 ========================= */
@@ -482,9 +529,274 @@ footer {
     font-size: 13px;
 }
 
+/* ========================================================
+   ESTILOS PREMIUM: TELA DE DETALHES & CHECKOUT
+   ======================================================== */
+
+.py-content {
+    padding: 80px 0;
+}
+
+.product-detail-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.product-info-box h1 {
+    font-size: 50px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.product-info-box .large-desc {
+    font-size: 18px;
+    color: #aeb5c4;
+    margin-bottom: 30px;
+}
+
+.product-price {
+    font-size: 16px;
+    color: #858e9f;
+    font-weight: bold;
+}
+
+.accent-price {
+    display: block;
+    font-size: 48px;
+    color: #6c63ff;
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-top: 5px;
+}
+
+.custom-divider {
+    height: 1px;
+    background: #1c2330;
+    margin: 35px 0;
+}
+
+.product-info-box h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.detail-features-list {
+    list-style: none;
+}
+
+.detail-features-list li {
+    font-size: 15px;
+    color: #b8bfcc;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.detail-features-list .checkmark {
+    color: #6c63ff;
+    font-weight: 900;
+    font-size: 18px;
+}
+
+/* CARTÃO DE CHECKOUT GLASS */
+.checkout-card {
+    background: rgba(16, 21, 31, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(108, 99, 255, 0.15);
+    border-radius: 20px;
+    padding: 45px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+.checkout-card h3 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.checkout-card p {
+    color: #8f98a9;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    color: #aeb6c8;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    background: #080b12;
+    border: 1px solid #252d3a;
+    border-radius: 10px;
+    padding: 16px;
+    color: #fff;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #4e5768;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #6c63ff;
+    outline: none;
+    box-shadow: 0 0 15px rgba(108, 99, 255, 0.25);
+    background: rgba(108, 99, 255, 0.02);
+}
+
+.submit-checkout-btn {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.secure-note {
+    text-align: center;
+    font-size: 12px;
+    color: #555e70;
+    margin-top: 20px;
+}
+
+/* ========================================================
+   ESTILOS PREMIUM: PÁGINA DE SUCESSO DO PAGAMENTO
+   ======================================================== */
+
+.success-page-bg {
+    background: #080b12;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.success-container {
+    width: min(580px, 92%);
+    padding: 40px 0;
+}
+
+.success-card {
+    background: rgba(16, 21, 31, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(108, 99, 255, 0.2);
+    border-radius: 24px;
+    padding: 60px 45px;
+    text-align: center;
+    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.6);
+}
+
+.success-icon {
+    font-size: 70px;
+    margin-bottom: 25px;
+    display: inline-block;
+    animation: bouncePop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+@keyframes bouncePop {
+    0% { transform: scale(0); }
+    70% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+.success-card h1 {
+    font-size: 32px;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+}
+
+.greeting {
+    color: #a0a8b7;
+    font-size: 16px;
+    margin-bottom: 35px;
+}
+
+.order-summary-box {
+    background: #080b12;
+    border: 1px solid #252d3a;
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 35px;
+}
+
+.order-summary-box p {
+    font-size: 13px;
+    color: #737c8d;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.order-summary-box h3 {
+    font-size: 24px;
+    margin: 8px 0;
+    color: #fff;
+    font-weight: 800;
+}
+
+.price-tag-success {
+    background: rgba(108, 99, 255, 0.15);
+    color: #a5a1ff;
+    border: 1px solid rgba(108, 99, 255, 0.3);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.next-step-info {
+    color: #aeb5c4;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.success-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.success-wa-btn {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+}
+
+.back-home-link {
+    color: #737c8d;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.back-home-link:hover {
+    color: #fff;
+    text-decoration: underline;
+}
 
 /* =========================
-   MOBILE
+   RESPONSIVIDADE GERAL
 ========================= */
 
 @media (max-width: 850px) {
@@ -533,8 +845,17 @@ footer {
         gap: 15px;
         text-align: center;
     }
-}
 
+    /* Nova Seção de Checkout no Mobile */
+    .product-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .product-info-box h1 {
+        font-size: 38px;
+    }
+}
 
 @media (max-width: 500px) {
 
@@ -565,4 +886,204 @@ footer {
     .contact-box {
         padding: 30px;
     }
+
+    .checkout-card {
+        padding: 30px 20px;
+    }
+}
+
+/* ========================================================
+   ESTILOS DA LOGO "LOGO YT" E DISCORD (ADICIONADO)
+   ======================================================== */
+
+/* Alinhamento da Logo na Navbar e Rodapé */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Espaço entre a imagem da logo e o texto */
+}
+
+.logo-img {
+    height: 42px; /* Altura ideal para não quebrar a barra de navegação */
+    width: auto;
+    object-fit: contain;
+    border-radius: 8px; /* Cantos levemente arredondados na logo */
+    border: 1px solid rgba(108, 99, 255, 0.2); /* Borda suave roxa */
+}
+
+/* Alinhamento da logo dentro do Mockup de demonstração */
+.mock-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 45px;
+}
+
+.logo-img-mock {
+    height: 30px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Agrupamento de botões no lado direito da Navbar */
+.nav-right-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Botão do Discord na Navbar */
+.nav-discord-button {
+    background: #5865F2; /* Cor oficial Blurple do Discord */
+    color: white;
+    padding: 11px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+}
+
+.nav-discord-button:hover {
+    background: #4752C4; /* Tom mais escuro de Discord no hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(88, 101, 242, 0.5);
+}
+
+/* Botão do Discord Geral (Hero e Seção de Contato) */
+.discord-btn {
+    background: #5865F2;
+    color: white !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+}
+
+.discord-btn:hover {
+    background: #4752C4;
+    box-shadow: 0 8px 25px rgba(88, 101, 242, 0.5);
+}
+
+/* Container de botões na área de contato */
+.contact-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Ícones dentro dos botões */
+.button i, 
+.nav-discord-button i {
+    font-size: 16px;
+}
+
+/* Ajustes de responsividade para celulares */
+@media (max-width: 500px) {
+    .nav-right-buttons {
+        display: none; /* Esconde botões extras no celular para não quebrar o topo */
+    }
+    
+    .contact-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    .contact-actions .button {
+        width: 100%;
+    }
+}
+
+/* ========================================================
+   ESTILOS ESPECÍFICOS DE PROMOÇÃO & NOVO CARD
+   ======================================================== */
+
+/* Faixa de Promoção no Topo do Site */
+.promo-bar {
+    background: linear-gradient(90deg, #6c63ff, #e0a3ff, #6c63ff);
+    background-size: 200% auto;
+    color: white;
+    text-align: center;
+    padding: 10px 15px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    z-index: 101;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(108, 99, 255, 0.4);
+    animation: animatePromoGlow 3s linear infinite;
+}
+
+@keyframes animatePromoGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.promo-bar span {
+    color: #ffd700;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+/* Container de Preços nos Cards */
+.price-container {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+/* Preço Antigo (Riscado) */
+.price-old {
+    font-size: 15px;
+    color: #4e5768;
+    text-decoration: line-through;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+/* Preço Promocional Destacado */
+.price {
+    font-size: 36px;
+    font-weight: 900;
+    color: #00ff88 !important; /* Brilho Verde Dinâmico */
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+    margin: 0 !important;
+}
+
+/* Badge de Desconto Flutuante no Card */
+.discount-badge-card {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    background: #ff3366; /* Rosa neon */
+    color: white;
+    font-size: 11px;
+    font-weight: 900;
+    padding: 5px 11px;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(255, 51, 102, 0.4);
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Ajuste dos Ícones dos Cards */
+.product-icon i {
+    font-size: 45px;
+    color: #6c63ff;
+    text-shadow: 0 0 15px rgba(108, 99, 255, 0.4);
+}
+
+/* Transições no Card Premium */
+.product-card {
+    border: 1px solid rgba(108, 99, 255, 0.1) !important;
+}
+
+.product-card:hover {
+    border-color: #00ff88 !important; /* Muda para verde se passar o mouse */
+    box-shadow: 0 15px 40px rgba(0, 255, 136, 0.08) !important;
 }

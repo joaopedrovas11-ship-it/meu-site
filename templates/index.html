@@ -2,336 +2,213 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="JP Webs - Criação de sites profissionais e modernos."
-    >
-
-    <title>JP Webs | Sites Profissionais</title>
-
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='style.css') }}"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JpPlayzTv Webs - Criação de sites profissionais, rápidos e modernos.">
+    <title>JpPlayzTv Webs | Sites Profissionais</title>
+    <!-- CSS Local -->
+    <link rel="stylesheet" href="../static/style.css">
+    <!-- Ícones Premium (Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
+
+    <!-- FAIXA DE PROMOÇÃO ATIVA -->
+    <div class="promo-bar">
+        ⚡ <span>PROMOÇÃO DE INAUGURAÇÃO:</span> ATÉ 70% DE DESCONTO EM TODOS OS PROJETOS POR TEMPO LIMITADO! ⚡
+    </div>
 
     <!-- NAVBAR -->
     <header class="navbar">
         <div class="container nav-content">
 
+            <!-- Logo com a imagem "logo yt.png" -->
             <a href="/" class="logo">
-                JP<span>Webs</span>
+                <img src="../static/logo yt.png" alt="Logo JpPlayzTv" class="logo-img">
+                JpPlayzTv<span>Webs</span>
             </a>
 
             <nav>
                 <a href="#inicio">Início</a>
-                <a href="#produtos">Produtos</a>
+                <a href="#produtos">Serviços</a>
                 <a href="#sobre">Sobre</a>
                 <a href="#contato">Contato</a>
             </nav>
 
-            <a
-                href="#produtos"
-                class="nav-button"
-            >
-                Ver produtos
-            </a>
+            <div class="nav-right-buttons">
+                <a href="https://discord.gg/mZ4Pt75Myk" target="_blank" class="nav-discord-button">
+                    <i class="fa-brands fa-discord"></i> Discord
+                </a>
+                <a href="#produtos" class="nav-button">
+                    Ver Serviços
+                </a>
+            </div>
 
         </div>
     </header>
 
-
-    <!-- HERO -->
     <main>
-
+        <!-- HERO -->
         <section id="inicio" class="hero">
-
             <div class="container hero-content">
-
                 <div class="hero-text">
-
-                    <div class="badge">
-                        🚀 Sites profissionais
-                    </div>
-
-                    <h1>
-                        Seu negócio merece
-                        <span>um site incrível.</span>
-                    </h1>
-
-                    <p>
-                        Criamos sites modernos, rápidos e responsivos
-                        para empresas, profissionais e criadores.
-                    </p>
-
+                    <div class="badge">🚀 Ofertas por Tempo Limitado — Aproveite!</div>
+                    <h1>Seu negócio merece <span>um site incrível.</span></h1>
+                    <p>Criamos sites modernos, extremamente rápidos, responsivos e Bots inteligentes para automatizar seu Discord e destacar sua marca.</p>
                     <div class="hero-buttons">
-
-                        <a
-                            href="#produtos"
-                            class="button primary"
-                        >
-                            Ver produtos
+                        <a href="#produtos" class="button primary">Ver produtos</a>
+                        <a href="https://discord.gg/mZ4Pt75Myk" target="_blank" class="button discord-btn">
+                            <i class="fa-brands fa-discord"></i> Entrar no Discord
                         </a>
-
-                        <a
-                            href="#contato"
-                            class="button secondary"
-                        >
-                            Falar comigo
-                        </a>
-
                     </div>
-
                 </div>
 
                 <div class="hero-card">
-
                     <div class="browser">
-
                         <div class="browser-top">
                             <span></span>
                             <span></span>
                             <span></span>
                         </div>
-
                         <div class="browser-content">
-
                             <div class="mock-logo">
-                                JP<span>Webs</span>
+                                <img src="../static/logo yt.png" alt="Logo" class="logo-img-mock">
+                                JpPlayzTv<span>Webs</span>
                             </div>
-
-                            <div class="mock-title">
-                                Seu próximo site
-                                começa aqui.
-                            </div>
-
+                            <div class="mock-title">Seu próximo site começa aqui.</div>
                             <div class="mock-line"></div>
                             <div class="mock-line small"></div>
-
-                            <div class="mock-button">
-                                Começar agora
-                            </div>
-
+                            <div class="mock-button">Começar agora</div>
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </section>
-
 
         <!-- BENEFÍCIOS -->
         <section class="benefits">
-
             <div class="container benefits-grid">
-
                 <div class="benefit">
                     <div class="benefit-icon">⚡</div>
-                    <h3>Rápido</h3>
-                    <p>Sites rápidos e otimizados.</p>
+                    <h3>Super Rápido</h3>
+                    <p>Carregamento instantâneo para não perder vendas.</p>
                 </div>
-
                 <div class="benefit">
-                    <div class="benefit-icon">📱</div>
-                    <h3>Responsivo</h3>
-                    <p>Funciona no celular, tablet e PC.</p>
+                    <div class="benefit-icon">🤖</div>
+                    <h3>Automação Completa</h3>
+                    <p>Bots eficientes para gerenciar seu servidor.</p>
                 </div>
-
                 <div class="benefit">
                     <div class="benefit-icon">🎨</div>
-                    <h3>Moderno</h3>
-                    <p>Design profissional e personalizado.</p>
+                    <h3>Design Premium</h3>
+                    <p>Identidade moderna e focada no público gamer/tech.</p>
                 </div>
-
                 <div class="benefit">
                     <div class="benefit-icon">🔒</div>
-                    <h3>Confiável</h3>
-                    <p>Estrutura preparada para produção.</p>
+                    <h3>Suporte Ativo</h3>
+                    <p>Ajuda e atualizações diretas pelo nosso Discord.</p>
                 </div>
-
             </div>
-
         </section>
 
-
-        <!-- PRODUTOS -->
+        <!-- PRODUTOS / SERVIÇOS -->
         <section id="produtos" class="products-section">
-
             <div class="container">
-
                 <div class="section-title">
-
-                    <div class="badge">
-                        💻 Nossos serviços
-                    </div>
-
-                    <h2>
-                        Escolha o site ideal
-                    </h2>
-
-                    <p>
-                        Soluções para diferentes tipos de projetos.
-                    </p>
-
+                    <div class="badge">💻 Nossos serviços</div>
+                    <h2>Tabela de Planos & Promoções</h2>
+                    <p>Destaque-se no mercado pagando muito menos com os nossos descontos ativos!</p>
                 </div>
 
-
                 <div class="products-grid">
-
                     {% for produto in produtos %}
-
-                    <article
-                        class="product-card {% if produto.destaque %}featured{% endif %}"
-                    >
-
+                    <article class="product-card {% if produto.destaque %}featured{% endif %}">
                         {% if produto.destaque %}
-                        <div class="popular">
-                            MAIS POPULAR
-                        </div>
+                        <div class="popular">MAIS RECOMENDADO</div>
                         {% endif %}
+
+                        <!-- Badge de Porcentagem de Desconto -->
+                        <div class="discount-badge-card">
+                            {{ produto.porcentagem }}
+                        </div>
 
                         <div class="product-icon">
                             {% if produto.id == 1 %}
-                                🌐
+                                <i class="fa-solid fa-earth-americas"></i>
                             {% elif produto.id == 2 %}
-                                💻
+                                <i class="fa-solid fa-laptop-code"></i>
                             {% else %}
-                                🚀
+                                <i class="fa-solid fa-robot" style="color: #6c63ff;"></i>
                             {% endif %}
                         </div>
 
-                        <h3>
-                            {{ produto.nome }}
-                        </h3>
-
-                        <p>
-                            {{ produto.descricao }}
-                        </p>
-
-                        <div class="price">
-                            {{ produto.preco }}
+                        <h3>{{ produto.nome }}</h3>
+                        <p>{{ produto.descricao }}</p>
+                        
+                        <!-- Visual de Preço Antigo vs Preço Promocional -->
+                        <div class="price-container">
+                            <span class="price-old">{{ produto.preco_original }}</span>
+                            <span class="price">{{ produto.preco }}</span>
                         </div>
 
                         <ul class="features">
-
-                            <li>✓ Design responsivo</li>
-                            <li>✓ Visual profissional</li>
-                            <li>✓ Otimizado para celular</li>
-                            <li>✓ Suporte inicial</li>
-
+                            <li>✓ Entrega Rápida & Testada</li>
+                            <li>✓ Integração de Redes Sociais / Webhooks</li>
+                            <li>✓ Otimização de Performance</li>
+                            <li>✓ Suporte Dedicado no Discord</li>
                         </ul>
 
-                        <a
-                            href="/produto/{{ produto.id }}"
-                            class="buy-button"
-                        >
-                            Quero este site →
+                        <a href="/produto/{{ produto.id }}" class="buy-button">
+                            Aproveitar Desconto →
                         </a>
-
                     </article>
-
                     {% endfor %}
-
                 </div>
-
             </div>
-
         </section>
-
 
         <!-- SOBRE -->
         <section id="sobre" class="about">
-
             <div class="container about-content">
-
                 <div>
-                    <div class="badge">
-                        ✨ Sobre a JP Webs
-                    </div>
-
-                    <h2>
-                        Transformando ideias em sites.
-                    </h2>
+                    <div class="badge">✨ Sobre nós</div>
+                    <h2>A agência certa para tirar seu projeto do papel.</h2>
                 </div>
-
                 <div>
-                    <p>
-                        A JP Webs cria sites modernos para ajudar
-                        negócios e profissionais a terem uma presença
-                        profissional na internet.
-                    </p>
-
-                    <p>
-                        Cada projeto pode ser personalizado de acordo
-                        com a necessidade do cliente.
-                    </p>
+                    <p>Na JpPlayzTv Webs, transformamos ideias ousadas em experiências digitais marcantes, intuitivas e de alto desempenho.</p>
+                    <p>Focamos em sites modernos, automações de Discord eficientes e bots sob medida para garantir o crescimento e a estabilidade da sua comunidade online.</p>
                 </div>
-
             </div>
-
         </section>
-
 
         <!-- CONTATO -->
         <section id="contato" class="contact">
-
             <div class="container contact-box">
-
                 <div>
-                    <div class="badge">
-                        📲 Vamos conversar
-                    </div>
-
-                    <h2>
-                        Quer criar seu site?
-                    </h2>
-
-                    <p>
-                        Entre em contato e explique o que você precisa.
-                    </p>
+                    <div class="badge">📲 Vamos iniciar?</div>
+                    <h2>Dúvidas ou Projetos Especiais?</h2>
+                    <p>Fale diretamente conosco em nossas centrais de atendimento!</p>
                 </div>
-
-                <a
-                    href="https://wa.me/5579999999999"
-                    target="_blank"
-                    class="button primary"
-                >
-                    Falar pelo WhatsApp
-                </a>
-
+                <div class="contact-actions">
+                    <a href="https://wa.me/557996457258?text=Olá,%20gostaria%20de%20fazer%20um%20orçamento!" target="_blank" class="button primary">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="https://discord.gg/mZ4Pt75Myk" target="_blank" class="button discord-btn">
+                        <i class="fa-brands fa-discord"></i> Entrar no Discord
+                    </a>
+                </div>
             </div>
-
         </section>
-
     </main>
-
 
     <!-- FOOTER -->
     <footer>
-
         <div class="container footer-content">
-
             <div class="logo">
-                JP<span>Webs</span>
+                <img src="../static/logo yt.png" alt="Logo" class="logo-img">
+                JpPlayzTv<span>Webs</span>
             </div>
-
-            <p>
-                © 2026 JP Webs. Todos os direitos reservados.
-            </p>
-
+            <p>© 2026 JpPlayzTv Webs. Todos os direitos reservados.</p>
         </div>
-
     </footer>
 
 </body>
