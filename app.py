@@ -8,9 +8,9 @@ PRODUTOS = [
         "id": 1,
         "nome": "Landing Page",
         "descricao": "Uma página de conversão ultra-rápida de alta performance. Perfeita para vender produtos físicos, infoprodutos ou serviços digitais.",
-        "preco_original": "R$ 499,00",
-        "preco": "R$ 150,00",
-        "porcentagem": "70% OFF",
+        "preco_original": "R$ 120,00",
+        "preco": "R$ 60,00",
+        "porcentagem": "50% OFF",
         "destaque": False,
         "detalhes": [
             "Focada 100% em conversão e vendas",
