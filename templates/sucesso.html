@@ -3,42 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pedido Confirmado! | JpPlayzTv Webs</title>
+    <title>Pagamento PIX | JpPlayzTv Webs</title>
     <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .pix-container { max-width: 550px; margin: 40px auto; padding: 30px; background: #1e293b; border-radius: 12px; color: #fff; text-align: center; }
+        .pix-box { background: #0f172a; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 1.1rem; color: #38bdf8; margin: 15px 0; word-break: break-all; border: 1px dashed #38bdf8; }
+        .btn-copy { background: #3b82f6; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; margin-bottom: 20px; }
+        .btn-wa { display: block; width: 100%; background: #22c55e; color: #fff; padding: 15px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 1.1rem; box-sizing: border-box; }
+        .btn-wa:hover { background: #16a34a; }
+    </style>
 </head>
-<body class="success-page-bg">
+<body>
 
-    <div class="success-container">
+    <div class="pix-container">
+        <h2>🎉 Pedido Gerado!</h2>
+        <p>Olá <strong>{{ cliente }}</strong>, realize o pagamento via PIX para darmos início ao seu projeto <strong>{{ produto.nome }}</strong>.</p>
+
+        <hr style="border-color: #334155; margin: 20px 0;">
+
+        <h3>Total a pagar: <span style="color: #22c55e;">{{ produto.preco }}</span></h3>
+        <p><small>Titular: {{ nome_beneficiario }}</small></p>
+
+        <p style="margin-top: 15px;">Copie a chave PIX abaixo:</p>
+        <div class="pix-box" id="chavePix">{{ chave_pix }}</div>
         
-        <div class="success-card">
-            <div class="success-icon">🎉</div>
-            
-            <h1>Pedido Recebido!</h1>
-            <p class="greeting">Olá, <strong>{{ cliente }}</strong>! Seu pedido de simulação foi gerado.</p>
-            
-            <div class="order-summary-box">
-                <p>Serviço Pré-Selecionado:</p>
-                <h3>{{ produto.nome }}</h3>
-                <span class="price-tag-success">Apenas {{ produto.preco }}</span>
-            </div>
+        <button class="btn-copy" onclick="copiarPix()">
+            <i class="fa-regular fa-copy"></i> Copiar Chave PIX
+        </button>
 
-            <p class="next-step-info">
-                🚀 <strong>Próximo passo:</strong> Clique no botão abaixo para nos enviar os detalhes no WhatsApp e darmos início ao planejamento do layout do seu site!
-            </p>
+        <hr style="border-color: #334155; margin: 20px 0;">
 
-            <div class="success-buttons">
-                <a 
-                    href="https://wa.me/5579999999999?text=Olá,%20meu%20nome%20é%20{{ cliente }}!%20Acabei%20de%20fazer%20a%20simulação%20do%20plano%20*{{ produto.nome }}*%20no%20seu%20site%20e%20quero%20iniciar%20o%20projeto." 
-                    target="_blank" 
-                    class="button primary success-wa-btn"
-                >
-                    Falar pelo WhatsApp Agora
-                </a>
-                <a href="/" class="back-home-link">Voltar para a Página Inicial</a>
-            </div>
-        </div>
+        <h3>📲 Próximo Passo:</h3>
+        <p style="margin-bottom: 20px; color: #94a3b8;">Após realizar o PIX no app do seu banco, clique no botão abaixo para nos mandar o print do comprovante:</p>
 
+        <a href="{{ link_whatsapp }}" target="_blank" class="btn-wa">
+            <i class="fa-brands fa-whatsapp"></i> Enviar Comprovante no WhatsApp
+        </a>
     </div>
+
+    <script>
+        function copiarPix() {
+            var chave = document.getElementById("chavePix").innerText;
+            navigator.clipboard.writeText(chave);
+            alert("Chave PIX copiada para a área de transferência!");
+        }
+    </script>
 
 </body>
 </html>
