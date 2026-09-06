@@ -40,9 +40,9 @@ PRODUTOS = [
         "id": 3,
         "nome": "Bot de Discord Personalizado",
         "descricao": "Sistemas completos de moderação automatizada, economia, registros, minigames e comandos exclusivos sob medida para sua comunidade.",
-        "preco_original": "R$ 120,00",
-        "preco": "R$ 72,00",
-        "porcentagem": "40% OFF",
+        "preco_original": "R$ 60,00",
+        "preco": "R$ 30,00",
+        "porcentagem": "50% OFF",
         "destaque": False,
         "detalhes": [
             "Comandos de barra inovadores (/)",
