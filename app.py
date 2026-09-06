@@ -1,8 +1,14 @@
 from flask import Flask, render_template, redirect, url_for, request
+import urllib.parse
 
 app = Flask(__name__)
 
-# Banco de dados atualizado com novos preços, promoções e Bot de Discord
+# CONFIGURAÇÕES DO SEU PIX (NG.CASH) E CONTATO
+CHAVE_PIX = "joaopedrovas14@gmail.com"  # <--- COLOQUE SUA CHAVE NG.CASH AQUI
+NOME_BENEFICIARIO = "João Pedro Vasconcelos Santos"              # <--- SEU NOME QUE APARECE NO PIX
+SEU_WHATSAPP = "5511999999999"                       # <--- SEU NÚMERO (com 55 + DDD + número)
+
+# Banco de dados de produtos
 PRODUTOS = [
     {
         "id": 1,
@@ -68,15 +74,32 @@ def produto(produto_id):
 @app.route('/checkout/<int:produto_id>', methods=['POST'])
 def checkout(produto_id):
     nome_cliente = request.form.get('nome')
-    whatsapp = request.form.get('whatsapp')
+    whatsapp_cliente = request.form.get('whatsapp')
     
     produto = next((p for p in PRODUTOS if p['id'] == produto_id), None)
     if not produto:
         return "Serviço não encontrado", 404
+    
+    # Cria a mensagem pronta para enviar no WhatsApp do vendedor
+    texto_msg = (
+        f"Olá! Meu nome é *{nome_cliente}*.\n"
+        f"Acabei de fazer o pedido do serviço *{produto['nome']}* no valor de *{produto['preco']}*!\n\n"
+        f"Estou enviando em anexo o comprovante do PIX que fiz para o NG.CASH."
+    )
+    
+    # Codifica o texto para formar um link do WhatsApp seguro
+    mensagem_encoded = urllib.parse.quote(texto_msg)
+    link_whatsapp = f"https://wa.me/{SEU_WHATSAPP}?text={mensagem_encoded}"
         
-    return render_template('sucesso.html', cliente=nome_cliente, produto=produto, whatsapp=whatsapp)
-
-import os
+    return render_template(
+        'sucesso.html', 
+        cliente=nome_cliente, 
+        produto=produto, 
+        whatsapp_cliente=whatsapp_cliente,
+        chave_pix=CHAVE_PIX,
+        nome_beneficiario=NOME_BENEFICIARIO,
+        link_whatsapp=link_whatsapp
+    )
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
