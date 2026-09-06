@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Pagamento PIX - {{ produto.nome }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #0f172a; color: #fff; text-align: center; padding: 20px; }
+        .card { background: #1e293b; max-width: 500px; margin: 0 auto; padding: 30px; border-radius: 12px; }
+        .pix-box { background: #0f172a; padding: 15px; border-radius: 8px; font-weight: bold; font-size: 1.2rem; color: #38bdf8; margin: 15px 0; word-break: break-all; }
+        .btn-wa { display: inline-block; background: #22c55e; color: #fff; padding: 15px 25px; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 15px; }
+        .btn-wa:hover { background: #16a34a; }
+        .btn-copy { background: #3b82f6; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>🎉 Pedido Gerado com Sucesso!</h2>
+        <p>Olá, <strong>{{ cliente }}</strong>! Falta pouco para começarmos seu projeto: <strong>{{ produto.nome }}</strong>.</p>
+        
+        <hr style="border-color: #334155;">
+
+        <h3>💳 Pagamento via PIX (NG.CASH)</h3>
+        <p>Valor a pagar: <strong style="color: #22c55e; font-size: 1.3rem;">{{ produto.preco }}</strong></p>
+        <p>Titular: <strong>{{ nome_beneficiario }}</strong></p>
+
+        <p>Copie a chave PIX abaixo:</p>
+        <div class="pix-box" id="chavePix">{{ chave_pix }}</div>
+        <button class="btn-copy" onclick="copiarPix()">📋 Copiar Chave PIX</button>
+
+        <br><br>
+        <hr style="border-color: #334155;">
+
+        <h3>📲 Próximo Passo:</h3>
+        <p>Após realizar o PIX no aplicativo do seu banco, clique no botão abaixo para nos enviar o comprovante:</p>
+
+        <a href="{{ link_whatsapp }}" target="_blank" class="btn-wa">
+            ✅ Já paguei! Enviar Comprovante
+        </a>
+    </div>
+
+    <script>
+        function copiarPix() {
+            var chave = document.getElementById("chavePix").innerText;
+            navigator.clipboard.writeText(chave);
+            alert("Chave PIX copiada com sucesso!");
+        }
+    </script>
+
+</body>
+</html>
