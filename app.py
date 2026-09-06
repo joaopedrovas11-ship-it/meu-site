@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request
 import urllib.parse
-
+import os
 app = Flask(__name__)
 
 # CONFIGURAÇÕES DO SEU PIX (NG.CASH) E CONTATO
