@@ -6,7 +6,7 @@ app = Flask(__name__)
 # CONFIGURAÇÕES DO SEU PIX (NG.CASH) E CONTATO
 CHAVE_PIX = "joaopedrovas14@gmail.com"  # <--- COLOQUE SUA CHAVE NG.CASH AQUI
 NOME_BENEFICIARIO = "João Pedro Vasconcelos Santos"              # <--- SEU NOME QUE APARECE NO PIX
-SEU_WHATSAPP = "5511999999999"                       # <--- SEU NÚMERO (com 55 + DDD + número)
+SEU_WHATSAPP = "5579996457258"                       # <--- SEU NÚMERO (com 55 + DDD + número)
 
 # Banco de dados de produtos
 PRODUTOS = [
