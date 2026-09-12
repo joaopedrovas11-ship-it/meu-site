@@ -3,73 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ produto.nome }} | JP Webs</title>
+    <title>{{ produto.nome }} | JpPlayzTv Webs</title>
+    <!-- CSS Local -->
     <link rel="stylesheet" href="../static/style.css">
+    <!-- Ícones Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- NAVBAR (Compatível com a sua existente) -->
+    <!-- FAIXA DE PROMOÇÃO TOPO -->
+    <div class="promo-bar">
+        ⚡ <span>PROMOÇÃO ATIVA:</span> VOCÊ ESTÁ GARANTINDO ATÉ 70% DE DESCONTO NESTE ITEM! ⚡
+    </div>
+
+    <!-- NAVBAR -->
     <header class="navbar">
         <div class="container nav-content">
             <a href="/" class="logo">
-                JP<span>Webs</span>
+                <img src="../static/logo yt.png" alt="Logo JpPlayzTv" class="logo-img">
+                JpPlayzTv<span>Webs</span>
             </a>
-            <nav>
-                <a href="/#produtos">← Voltar para Serviços</a>
-            </nav>
+            
+            <div class="nav-right-buttons">
+                <a href="https://discord.gg/mZ4Pt75Myk" target="_blank" class="nav-discord-button">
+                    <i class="fa-brands fa-discord"></i> Discord
+                </a>
+                <a href="/#produtos" class="nav-button">
+                    ← Voltar aos Serviços
+                </a>
+            </div>
         </div>
     </header>
 
-    <main class="container py-content">
-        <div class="product-detail-grid">
+    <main class="container py-content" style="padding: 40px 20px; min-height: 80vh;">
+        <div class="product-detail-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; align-items: start;">
             
-            <!-- Coluna da Esquerda: Detalhes do Serviço -->
-            <div class="product-info-box">
-                <div class="badge">💻 Serviço Selecionado</div>
-                <h1>{{ produto.nome }}</h1>
-                <p class="large-desc">{{ produto.descricao }}</p>
+            <!-- COLUNA DA ESQUERDA: Detalhes do Produto / Serviço -->
+            <div class="product-info-box" style="background: rgba(255, 255, 255, 0.03); padding: 35px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1);">
+                <div class="badge" style="margin-bottom: 15px;">🔥 Oferta Selecionada</div>
                 
-                <div class="product-price">{{ produto.preco }}</div>
+                <h1 style="font-size: 2.2rem; margin-bottom: 12px; color: #fff;">{{ produto.nome }}</h1>
+                <p class="large-desc" style="font-size: 1.05rem; color: #a1a1aa; line-height: 1.6; margin-bottom: 25px;">
+                    {{ produto.descricao }}
+                </p>
+                
+                <!-- Preço & Desconto -->
+                <div class="price-container" style="display: flex; align-items: center; gap: 15px; margin-bottom: 25px;">
+                    <div>
+                        <span class="price-old" style="text-decoration: line-through; color: #71717a; font-size: 1.1rem; display: block;">
+                            {{ produto.preco_original }}
+                        </span>
+                        <span class="price" style="font-size: 2.4rem; font-weight: 800; color: #22c55e;">
+                            {{ produto.preco }}
+                        </span>
+                    </div>
+                    <span class="discount-badge-card" style="background: rgba(34, 197, 94, 0.15); color: #22c55e; border: 1px solid #22c55e; padding: 6px 12px; border-radius: 20px; font-weight: bold; font-size: 0.9rem;">
+                        {{ produto.porcentagem }}
+                    </span>
+                </div>
 
-                <div class="custom-divider"></div>
+                <div class="custom-divider" style="height: 1px; background: rgba(255, 255, 255, 0.1); margin: 25px 0;"></div>
 
-                <h3>O que está incluso neste projeto?</h3>
-                <ul class="detail-features-list">
+                <h3 style="margin-bottom: 18px; font-size: 1.25rem; color: #f4f4f5;">
+                    <i class="fa-solid fa-list-check" style="color: #6366f1; margin-right: 8px;"></i> O que está incluso:
+                </h3>
+                
+                <ul class="detail-features-list" style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 14px;">
                     {% for detalhe in produto.detalhes %}
-                        <li>
-                            <span class="checkmark">✓</span> {{ detalhe }}
+                        <li style="display: flex; align-items: center; gap: 10px; color: #e4e4e7; font-size: 1rem;">
+                            <span class="checkmark" style="background: #22c55e; color: #000; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold;">✓</span> 
+                            {{ detalhe }}
                         </li>
                     {% endfor %}
                 </ul>
+
+                <!-- Benefícios Extras de Confiança -->
+                <div style="margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div style="background: rgba(255, 255, 255, 0.02); padding: 12px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.05); text-align: center;">
+                        <i class="fa-solid fa-bolt" style="color: #eab308; font-size: 1.2rem; margin-bottom: 5px;"></i>
+                        <div style="font-size: 0.85rem; font-weight: 600; color: #fff;">Entrega Ágil</div>
+                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.02); padding: 12px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.05); text-align: center;">
+                        <i class="fa-solid fa-shield-halved" style="color: #3b82f6; font-size: 1.2rem; margin-bottom: 5px;"></i>
+                        <div style="font-size: 0.85rem; font-weight: 600; color: #fff;">Garantia & Suporte</div>
+                    </div>
+                </div>
             </div>
 
-            <!-- Coluna da Direita: Formulário de Contratação -->
-            <div class="checkout-card">
-                <h3>Iniciar meu Projeto 🚀</h3>
-                <p>Preencha os dados abaixo para simularmos seu pedido e entrarmos em contato.</p>
+            <!-- COLUNA DA DIREITA: Formulário de Checkout -->
+            <div class="checkout-card" style="background: rgba(255, 255, 255, 0.04); padding: 35px; border-radius: 20px; border: 1px solid rgba(99, 102, 241, 0.3); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                    <span style="font-size: 1.5rem;">🛒</span>
+                    <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Finalizar Pedido</h2>
+                </div>
+                <p style="color: #a1a1aa; font-size: 0.95rem; margin-bottom: 25px;">
+                    Informe seus dados abaixo para gerarmos as instruções de pagamento via <strong>PIX (NG.CASH)</strong>.
+                </p>
                 
-                <form action="/checkout/{{ produto.id }}" method="POST">
-                    <div class="form-group">
-                        <label for="nome">Seu Nome completo</label>
-                        <input type="text" id="nome" name="nome" placeholder="Ex: João Silva" required>
+                <form action="/checkout/{{ produto.id }}" method="POST" style="display: flex; flex-direction: column; gap: 18px;">
+                    
+                    <div class="form-group" style="display: flex; flex-direction: column; gap: 6px;">
+                        <label for="nome" style="font-size: 0.9rem; font-weight: 600; color: #e4e4e7;">
+                            <i class="fa-solid fa-user" style="color: #818cf8; margin-right: 5px;"></i> Seu Nome Completo
+                        </label>
+                        <input type="text" id="nome" name="nome" placeholder="Ex: João da Silva" required
+                               style="width: 100%; padding: 14px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; color: #fff; font-size: 1rem; outline: none;">
                     </div>
 
-                    <div class="form-group">
-                        <label for="whatsapp">WhatsApp para contato</label>
-                        <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ex: (79) 7996457258" required>
+                    <div class="form-group" style="display: flex; flex-direction: column; gap: 6px;">
+                        <label for="whatsapp" style="font-size: 0.9rem; font-weight: 600; color: #e4e4e7;">
+                            <i class="fa-brands fa-whatsapp" style="color: #22c55e; margin-right: 5px;"></i> WhatsApp para Contato (com DDD)
+                        </label>
+                        <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ex: 79999999999" required
+                               style="width: 100%; padding: 14px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; color: #fff; font-size: 1rem; outline: none;">
                     </div>
 
-                    <div class="form-group">
-                        <label for="obs">Fale brevemente sobre o seu negócio (Opcional)</label>
-                        <textarea id="obs" name="obs" rows="3" placeholder="Do que se trata o seu site?"></textarea>
+                    <div class="form-group" style="display: flex; flex-direction: column; gap: 6px;">
+                        <label for="obs" style="font-size: 0.9rem; font-weight: 600; color: #e4e4e7;">
+                            <i class="fa-brands fa-discord" style="color: #5865F2; margin-right: 5px;"></i> Nick Discord / Link Servidor / Detalhes (Opcional)
+                        </label>
+                        <textarea id="obs" name="obs" rows="3" placeholder="Ex: Seu @discord, link do servidor para os impulsos, ou detalhes do seu site."
+                                  style="width: 100%; padding: 14px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; color: #fff; font-size: 1rem; outline: none; resize: vertical;"></textarea>
                     </div>
 
-                    <button type="submit" class="button primary submit-checkout-btn">
-                        Simular Contratação →
+                    <button type="submit" class="button primary submit-checkout-btn" 
+                            style="width: 100%; padding: 16px; font-size: 1.1rem; font-weight: bold; border-radius: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 10px; box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);">
+                        <i class="fa-solid fa-qrcode"></i> Pagar via PIX ({{ produto.preco }}) →
                     </button>
                 </form>
                 
-                <p class="secure-note">🔒 Seus dados de contato estão seguros.</p>
+                <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.08); text-align: center;">
+                    <p class="secure-note" style="color: #a1a1aa; font-size: 0.85rem; margin: 0; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                        <i class="fa-solid fa-lock" style="color: #22c55e;"></i> Ambiente Seguro & Pagamento Instantâneo
+                    </p>
+                </div>
             </div>
 
         </div>
@@ -79,6 +146,7 @@
     <footer>
         <div class="container footer-content">
             <div class="logo">
+                <img src="../static/logo yt.png" alt="Logo" class="logo-img">
                 JpPlayzTv<span>Webs</span>
             </div>
             <p>© 2026 JpPlayzTv Webs. Todos os direitos reservados.</p>
