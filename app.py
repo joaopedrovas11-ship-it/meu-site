@@ -57,6 +57,38 @@ PRODUTOS = [
             "Sistemas de cargos automáticos e VIPs",
             "Hospedagem 24/7 de alta estabilidade"
         ]
+    },
+    {
+        "id": 4,
+        "nome": "14x Impulsos Discord",
+        "descricao": "Melhore o nível do seu servidor do Discord instantaneamente com 14 impulsos (Boosts) de alta qualidade para liberar vantagens premium.",
+        "preco_original": "R$ 50,00",
+        "preco": "R$ 20,00",
+        "porcentagem": "60% OFF",
+        "destaque": False,
+        "detalhes": [
+            "14 Impulsos enviados diretamente ao seu servidor",
+            "Ativação rápida e segura",
+            "Libera vantagens de Nível 2 ou Nível 3",
+            "Melhoria na qualidade de áudio e limite de emojis",
+            "Suporte dedicado durante a entrega"
+        ]
+    },
+    {
+        "id": 5,
+        "nome": "Conta Nitro (Mensal)",
+        "descricao": "Acesso a uma conta com assinatura de Discord Nitro Premium ativa por 30 dias com todos os benefícios liberados.",
+        "preco_original": "R$ 24,90",
+        "preco": "R$ 7,00",
+        "porcentagem": "72% OFF",
+        "destaque": False,
+        "detalhes": [
+            "Assinatura Nitro Premium ativa por 1 mês",
+            "Envio de arquivos pesados de até 500MB",
+            "Uso de emojis e stickers personalizados globais",
+            "Transmissões em qualidade máxima (1080p 60FPS)",
+            "2 Impulsos de Servidor inclusos na assinatura"
+        ]
     }
 ]
 
